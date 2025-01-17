@@ -1,0 +1,30 @@
+{
+  "name": "iz-seeder",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev2": "tsc && node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPLV3",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.6",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/simple-peer": "^9.11.8",
+    "@types/webtorrent": "^0.110.0",
+    "express": "^4.21.2",
+    "simple-peer": "^9.11.1",
+    "webtorrent": "^2.5.12"
+  }
+}

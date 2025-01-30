@@ -156,6 +156,8 @@ app.post(
         const targetDir = `/var/tmp/seeder/torrents/${id}`
         const srcFile = path.join(srcDir, req.file.filename)
 
+        console.log(`Uploading ${id} to ${srcFile}`)
+
         res.status(200).json({
             message: "File uploaded successfully",
             id,

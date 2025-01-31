@@ -14,6 +14,7 @@
   "author": "",
   "license": "GPLV3",
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/fluent-ffmpeg": "^2.1.27",
     "@types/mocha": "^10.0.10",

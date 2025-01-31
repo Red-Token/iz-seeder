@@ -148,6 +148,27 @@ const upload = multer({
     limits: {fileSize: 4000 * 1024 * 1024}, // Limit to 200 MB
 });
 
+app.get('/api/zorro', (req, res) => {
+    const infoHash = '634f15dd28521fb29a458e3500f9137fcfe6365d'
+    const torrent = wt.add(infoHash, options)
+
+    torrent.on('download', bytes => {
+        console.log('down:' + bytes)
+    })
+
+    torrent.on('upload', bytes => {
+        console.log('up' + bytes)
+    })
+
+    torrent.on('done', () => {
+        console.log('DONE!')
+    })
+
+    torrent.on('wire', function (wire) {
+        console.log(wire)
+    })
+})
+
 app.post(
     '/api/upload',
     upload.single('file'),
@@ -304,9 +325,9 @@ wss.on('connection', (ws: WebSocket) => {
     ws.on('message', (message: string) => {
         const req = JSON.parse(message);
 
-        if(req.id === upload) console.log("No ID");
+        if (req.id === upload) console.log("No ID");
 
-        if(map.has(req.id))
+        if (map.has(req.id))
             map.set(req.id, []);
 
         map.get(req.id)?.push(ws);
